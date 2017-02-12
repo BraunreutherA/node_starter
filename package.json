@@ -14,7 +14,8 @@
     "test": "ava --tap | tap-diff",
     "prebuild": "npm run clean",
     "build": "babel --optional runtime src -d build",
-    "coverage": "babel-node node_modules/isparta/bin/isparta cover test/index.js"
+    "coverage": "babel-node node_modules/isparta/bin/isparta cover test/index.js",
+    "labelmaker": "git-labelmaker"
   },
   "repository": {
     "type": "git",

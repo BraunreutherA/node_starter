@@ -8,12 +8,13 @@
     "dist/"
   ],
   "scripts": {
+    "start": "node build/index.js",
     "clean": "rm -rf lib",
     "lint": "eslint src test",
     "check": "dependency-check package.json --entry src/handler.js",
     "test": "ava --tap | tap-diff",
     "prebuild": "npm run clean",
-    "build": "babel --optional runtime src -d build",
+    "build": "babel --optional runtime src -d build --source-maps",
     "coverage": "babel-node node_modules/isparta/bin/isparta cover test/index.js",
     "labelmaker": "git-labelmaker"
   },
@@ -44,11 +45,23 @@
     "tap-diff": "^0.1.1"
   },
   "dependencies": {
-    "bluebird": "^3.4.6"
+    "ajv": "^4.11.3",
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.8.2",
+    "mongoose-type-url": "^1.0.2",
+    "numeral": "^2.0.4",
+    "yaeeh": "^0.6.0"
   },
   "ava": {
     "files": [
       "./src/**/*.spec.js"
-    ]
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
   }
 }

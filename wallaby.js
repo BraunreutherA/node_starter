@@ -19,5 +19,11 @@ module.exports = function (wallaby) {
     },
 
     testFramework: 'ava',
+
+    workers: {
+      recycle: true,
+      initial: 1,
+      regular: 1,
+    },
   };
 };

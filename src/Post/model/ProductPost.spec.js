@@ -18,6 +18,7 @@ test('Productposts should return PRODUCT as type', (t) => {
   const productPost = new ProductPost({});
 
   t.is(productPost.getType(), POST_TYPES.PRODUCT);
+  t.is(productPost.toJSON().type, POST_TYPES.PRODUCT);
 });
 
 test('A productpost should return it\'s price as a string format.', (t) => {

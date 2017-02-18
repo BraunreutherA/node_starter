@@ -3,7 +3,6 @@ module.exports = function (wallaby) {
     files: [
       'src/**/*.js',
       '!src/**/*.spec.js',
-      'test/helpers.js',
     ],
 
     tests: [
@@ -16,6 +15,10 @@ module.exports = function (wallaby) {
 
     compilers: {
       '**/*.js': wallaby.compilers.babel(),
+    },
+
+    bootstrap() {
+      require('babel-polyfill');
     },
 
     testFramework: 'ava',

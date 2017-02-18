@@ -39,6 +39,7 @@ const ProductPostSchema = new Schema({
     transform(doc, ret) {
       delete ret._id;
       ret.price = numeral(doc.price).format('0,0.00$');
+      ret.type = doc.getType();
     },
   },
 });
